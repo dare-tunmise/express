@@ -5,10 +5,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const mockUsers = [
-    {id: 1, username: "Dare", displayName: "dare_tunmise" },
-    {id: 2, username: "bolu", displayName: "bolu_taiwo"},
-    {id: 3, username: "damilola", displayName: "damilola_dare"}
-]
+    { id: 1, username: "Dare", displayName: "tunmise" },
+    { id: 2, username: "bolu", displayName: "taiwo" },
+    { id: 3, username: "damilola", displayName: "damilola_dare" },
+    { id: 4, username: "chinedu", displayName: "chinedu_okeke" },
+    { id: 5, username: "zainab", displayName: "zainy_zee" },
+    { id: 6, username: "femi", displayName: "femi_the_dev" },
+    { id: 7, username: "uche", displayName: "uche_nwa" },
+    { id: 8, username: "amaka", displayName: "maka_chukwu" },
+    { id: 9, username: "yusuf", displayName: "yusuf_ade" }
+];
 
 const mockProducts = [
     {id: 123, name: "gizzard", price: 2500 },
@@ -21,6 +27,7 @@ app.get('/', (request, response)=> {
 })
 
 app.get('/api/users', (request, response) => {
+    console.log(request.query)
     response.send(mockUsers);
 });
 
