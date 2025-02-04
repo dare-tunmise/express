@@ -99,6 +99,18 @@ app.get('/api/products/:id', (request, response)=> {
         return response.send(findProduct);
 })
 
+app.get('/api/blogs', (request, response)=> {
+    response.send(blogPosts)
+})
+
+app.get('/api/blogs/:id', (request, response)=> {
+    const parsedID = parseInt(request.params.id);
+    if(isNaN(parsedID)) return response.status(400).send({msg:"invalid data"});
+
+    const findBlog = blogPosts.find((blog)=> blog.id === parsedID);
+    if(!findBlog) return response.sendStatus(400);
+    return response.send(findBlog);
+})
 
 app.listen(PORT, ()=> {
     console.log(`Running on Port ${PORT}`);
