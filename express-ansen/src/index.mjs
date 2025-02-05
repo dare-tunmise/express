@@ -1,6 +1,7 @@
 import express, { request, response } from 'express';
 
 const app = express();
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
@@ -74,6 +75,12 @@ app.get('/api/users', (request, response) => {
     console.log(request.query)
     response.send(mockUsers);
 });
+
+app.post('/api/users', (request, response)=> {
+    console.log(request.body)
+    return response.send(200);
+
+})
 
 app.get('/api/users/:id', (request, response)=> {
     console.log(request.params);
